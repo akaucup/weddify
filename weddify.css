@@ -1,0 +1,511 @@
+/* Link ke Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+/* Montserrat */
+.font-montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Nunito */
+.font-nunito {
+  font-family: "Nunito", sans-serif;
+}
+
+/* Dancing Script */
+.font-dancing-script {
+  font-family: "Dancing Script", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  scroll-snap-type: y mandatory;
+}
+
+#cover,
+#wedding-couple,
+#wedding-event,
+#wedding-info,
+#wedding-location,
+#wedding-message {
+  min-height: 96vh !important;
+  position: relative !important;
+  z-index: 1 !important;
+  padding: 1rem !important;
+}
+
+#cover {
+  background: url(https://static.vecteezy.com/system/resources/previews/006/845/874/large_2x/watercolor-floral-background-with-brush-and-floral-frame-for-horizontal-banner-backdrop-wedding-invitation-thank-you-card-wallpaper-free-photo.jpg) !important;
+  background-size: cover !important;
+  background-position: center !important;
+  overflow: hidden; /* Mencegah scroll pada cover */
+  height: 100vh; /* Pastikan cover mengambil tinggi penuh */
+  z-index: 10000; /* Pastikan cover di atas elemen lain sebelum dibuka */
+  /*transition: opacity 0.5s ease; Transisi lembut saat cover disembunyikan */
+  transition: transform 1s ease, opacity 0.5s ease; /* Tambahkan transisi untuk slide ke atas dan opacity */
+  transform: translateY(0); /* Awalnya pada posisi semula */
+  opacity: 1; /* Awalnya terlihat */
+}
+#wedding-couple {
+  background: url(https://static.vecteezy.com/system/resources/previews/006/845/888/large_2x/watercolor-floral-background-with-brush-and-floral-frame-for-horizontal-banner-backdrop-wedding-invitation-thank-you-card-wallpaper-free-photo.jpg) !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+#wedding-event {
+  background: url(https://static.vecteezy.com/system/resources/previews/010/585/935/non_2x/pine-leaves-botanical-abstract-art-background-luxury-minimal-style-wallpaper-with-golden-line-art-flower-and-botanical-leaves-organic-shapes-watercolor-background-for-banner-poster-free-vector.jpg) !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+#wedding-info {
+  background: url(https://static.vecteezy.com/system/resources/previews/007/740/967/large_2x/abstract-art-gold-tropical-leaves-background-luxury-wallpaper-with-watercolor-tropical-leaf-framed-exotic-color-free-vector.jpg) !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+#wedding-location {
+  background: url(https://static.vecteezy.com/system/resources/previews/007/740/967/large_2x/abstract-art-gold-tropical-leaves-background-luxury-wallpaper-with-watercolor-tropical-leaf-framed-exotic-color-free-vector.jpg) !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+#wedding-message {
+  background: url(https://static.vecteezy.com/system/resources/previews/010/585/934/large_2x/sunflowers-botanical-abstract-art-background-line-art-flower-and-botanical-leaves-organic-shapes-background-for-banner-poster-web-and-packaging-free-vector.jpg) !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+#ending-invitation {
+  background: url(https://static.vecteezy.com/system/resources/previews/006/845/880/large_2x/watercolor-floral-background-with-brush-and-floral-frame-for-horizontal-banner-backdrop-wedding-invitation-thank-you-card-wallpaper-free-photo.jpg) !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.circular-image {
+  width: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.avt {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.blur-background {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(15px);
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+/* Custom floating navigation indicator */
+.navigation-indicator {
+  position: fixed;
+  bottom: 5px; /* Jarak dari bawah layar */
+  left: 50%;
+  backdrop-filter: blur(12px);
+  transform: translateX(-50%); /* Menempatkan di tengah layar */
+  background-color: rgba(
+    236,
+    235,
+    222,
+    0.7
+  ); /* rgba(255, 255, 255, 0.9) Transparansi background */
+  padding: 12px 12px; /* Padding di sekitar ikon */
+  border-radius: 10px; /* Membulatkan seluruh area */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+  z-index: 9999; /* Supaya tetap berada di atas konten lain */
+  width: auto;
+  max-width: 100%; /* Batas maksimal lebar agar tetap responsif */
+}
+
+/* Navigation item styling */
+.indicator-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px; /* Lebar yang sama dengan tinggi untuk membuat persegi */
+  height: 30px; /* Tinggi yang sama dengan lebar */
+  background-color: transparent; /* #A9DFBF Tidak ada background untuk ikon */
+  color: #229954; /* Warna ikon */
+  font-size: 1.2rem; /* Ukuran ikon */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transisi untuk hover */
+  border-radius: 5px; /* Membuat ikon bulat */
+}
+
+/* Flexbox container for centering items */
+.nav {
+  gap: 12px; /* Jarak antar ikon */
+  align-items: center;
+}
+
+/* Active state for navigation item */
+.indicator-item.active {
+  background-color: rgba(130, 224, 170, 0.9); /*  Hover saat ikon aktif */
+  color: #0b5345; /* A9DFBF Warna ikon berubah saat aktif */
+  border-radius: 5px; /* Pastikan tetap bulat */
+  transform: scale(1.5); /* Sedikit lebih besar saat aktif */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transisi halus */
+}
+
+/* Hover and active interaction */
+.indicator-item:hover,
+.indicator-item.active:hover {
+  background-color: rgba(130, 224, 170, 0.9); /* Transparansi background */
+  transform: scale(1.5); /* Efek hover lebih besar */
+}
+
+/* Tambahan Transisi untuk Smooth Animasi */
+
+.poff {
+  opacity: 0; /* Awalnya tidak terlihat */
+  transform: translateY(50px); /* Menggeser sedikit ke bawah */
+  transition: opacity 1s ease-in, transform 0.5s ease-in; /* Transisi smooth */
+}
+
+.poff.visible {
+  opacity: 1; /* Terlihat */
+  transform: translateY(0); /* Kembali ke posisi semula */
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#audio-control {
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+  z-index: 9999;
+  transform-origin: center; /* Pastikan rotasi terjadi di tengah */
+  font-size: 25px;
+  color: #007bff; /* Ubah warna sesuai keinginan */
+  cursor: pointer;
+}
+
+/* Hanya putar jika memiliki kelas .spin */
+.spin {
+  animation-name: spin;
+  animation-duration: 5000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transform-origin: center; /* Pastikan rotasi terjadi di tengah */
+}
+
+.comment {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.comment:nth-child(odd) {
+  background-color: #f2f2f2; /* Warna untuk baris ganjil */
+}
+
+.comment:nth-child(even) {
+  background-color: #ffffff; /* Warna untuk baris genap */
+}
+
+.comment .header {
+  display: flex;
+  align-items: center; /* Nama dan ikon berada dalam satu baris */
+}
+
+.name {
+  color: #333;
+  margin-right: 5px; /* Jarak antara nama dan ikon */
+}
+
+.attendance-icon {
+  font-size: 1.2em; /* Ukuran ikon */
+  vertical-align: middle; /* Memastikan ikon sejajar dengan teks */
+}
+
+.attendance {
+  color: #666;
+}
+
+.timestamp {
+  margin-left: auto; /* Agar timestamp ada di ujung kanan */
+  color: #999;
+  font-size: 0.9em;
+}
+
+.message {
+  margin-top: 5px;
+  text-align: left;
+}
+
+.page-button {
+  padding: 5px 10px;
+  margin: 0 5px;
+  border: 1px solid #ddd;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.page-button.active {
+  background-color: #333;
+  color: #fff;
+}
+
+.page-button:hover {
+  background-color: #ddd;
+}
+
+#messageTextarea {
+  height: 100px;
+  resize: none;
+}
+.bi-check-circle-fill {
+  color: #27ae60;
+}
+.bi-slash-circle-fill {
+  color: #f4d03f;
+}
+.bi-x-circle-fill {
+  color: #e74c3c;
+}
+
+/* Button Styling */
+.custom-btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adding shadow */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+  background-color: #b2ac88; /* Primary background */
+}
+
+.custom-btn:hover {
+  background-color: #918c6d; /* Darker background on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+/* Primary Button */
+.primary-btn {
+  background-color: #b2ac88;
+}
+
+.primary-btn:hover {
+  background-color: #a79e7a; /* Slightly darker shade on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Larger shadow on hover */
+}
+
+/* Lighter Button */
+.lighter-btn {
+  background-color: #cdc9a4;
+}
+
+.lighter-btn:hover {
+  background-color: #b2ac88; /* Change to primary color on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Larger shadow on hover */
+}
+
+/* Button with a border for more contrast */
+.custom-btn-outline {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 2px solid #b2ac88;
+  background-color: transparent;
+  color: #b2ac88;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.custom-btn-outline:hover {
+  background-color: #b2ac88;
+  color: white;
+}
+
+/* Styling untuk persegi melengkung atas dan bawah */
+/* Styling persegi melengkung di bagian atas dan bawah tanpa mengubah bentuk persegi menjadi oval */
+.curved-square {
+  width: 200px; /* Atur sesuai kebutuhan */
+  height: 400px; /* Atur sesuai kebutuhan */
+  object-fit: cover; /* Gambar menutupi seluruh area */
+  background-position: center;
+  border-radius: 150px;
+}
+
+/* Background Colors */
+.primary-bg {
+  background-color: #16a085; /* Primary color */
+}
+
+.primary-bg-light {
+  background-color: #1abc9c; /* Slightly lighter */
+}
+
+.primary-bg-lighter {
+  background-color: #7ed9c1; /* Much lighter */
+}
+
+.primary-bg-dark {
+  background-color: #0f705e; /* Darker */
+}
+
+.primary-bg-darker {
+  background-color: #0c594b; /* Darkest */
+}
+
+/* Text Colors */
+.primary-text {
+  color: #16a085; /* Primary color */
+}
+
+.primary-text-emphasis {
+  color: #138f74; /* Slightly darker */
+}
+/* Background Colors */
+.primary-bg {
+  background-color: #b2ac88; /* Primary color */
+}
+
+.primary-bg-light {
+  background-color: #cbc69e; /* Slightly lighter */
+}
+
+.primary-bg-lighter {
+  background-color: #e5e0b3; /* Much lighter */
+}
+
+.primary-bg-dark {
+  background-color: #918c6d; /* Darker */
+}
+
+.primary-bg-darker {
+  background-color: #6f6b52; /* Darkest */
+}
+
+/* Text Colors */
+.primary-text {
+  color: #b2ac88; /* Primary color */
+}
+
+.primary-text-emphasis {
+  color: #9b9575; /* Slightly darker */
+}
+
+.primary-text-light {
+  color: #cbc69e; /* Slightly lighter */
+}
+
+.primary-text-lighter {
+  color: #e5e0b3; /* Much lighter */
+}
+
+.primary-text-dark {
+  color: #918c6d; /* Darker */
+}
+
+.primary-text-darker {
+  color: #6f6b52; /* Darkest */
+}
+
+/* Border Colors */
+.border-primary {
+  border-color: #b2ac88; /* Primary color */
+}
+
+.border-primary-emphasis {
+  border-color: #9b9575; /* Slightly darker */
+}
+
+.border-primary-light {
+  border-color: #cbc69e; /* Slightly lighter */
+}
+
+.border-primary-lighter {
+  border-color: #e5e0b3; /* Much lighter */
+}
+
+.border-primary-dark {
+  border-color: #918c6d; /* Darker */
+}
+
+.border-primary-darker {
+  border-color: #6f6b52; /* Darkest */
+}
+
+@media (max-width: 768px) {
+  .indicator-item {
+    width: 40px; /* Lebar ikon lebih kecil pada layar kecil */
+    height: 40px; /* Tinggi yang sama agar tetap persegi */
+    font-size: 1.2rem; /* Ukuran ikon lebih kecil */
+  }
+
+  .navigation-indicator {
+    padding: 10px 10px; /* Kurangi padding pada layar kecil */
+    max-width: 90%; /* Batas lebar yang lebih kecil */
+  }
+
+  .nav {
+    gap: 12px; /* Kurangi jarak antar ikon pada layar kecil */
+  }
+  .icon-text {
+    display: inline-block;
+    position: relative;
+    padding: 0 15px; /* Jarak antara garis dan ikon */
+  }
+
+  .icon-text::before,
+  .icon-text::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 100px; /* Panjang garis */
+    height: 1px; /* Ketebalan garis */
+    background-color: black; /* Warna garis */
+  }
+
+  .icon-text::before {
+    left: -10px; /* Garis di sisi kiri */
+    transform: translateY(-50%);
+  }
+
+  .icon-text::after {
+    right: -10px; /* Garis di sisi kanan */
+    transform: translateY(-50%);
+  }
+}
+
+.icon-text {
+  display: inline-block;
+  position: relative;
+  padding: 0 15px; /* Jarak antara garis dan ikon */
+}
+
+.icon-text::before,
+.icon-text::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 100px; /* Panjang garis */
+  height: 1px; /* Ketebalan garis */
+  background-color: black; /* Warna garis */
+}
+
+.icon-text::before {
+  left: -1px; /* Garis di sisi kiri */
+  transform: translateY(-50%);
+}
+
+.icon-text::after {
+  right: -1px; /* Garis di sisi kanan */
+  transform: translateY(-50%);
+}
+.display-none {
+  display: none !important;
+}
